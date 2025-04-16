@@ -1,9 +1,8 @@
 import Header from "../components/common/Header";
 import AboutUs from "../components/home/Aboutus";
 import Amenties from "../components/home/Amenties";
-import HeroSection from "../components/Home/HeroSection";
+import HeroSection from "../components/home/HeroSection";
 import PriceList from "../components/home/PriceList";
-import Footer from "../components/home/Footer";
 import Gallery from "../components/home/Gallery";
 import Contact from "../components/home/Contact";
 import LocationMap from "../components/home/LocationMap";
@@ -22,7 +21,6 @@ const Home = () => {
       <MasterAndFloorPlans />
       <Gallery />
       <Contact />
-      {/* <Footer /> */}
     </>
   );
 };

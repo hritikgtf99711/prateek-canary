@@ -3,12 +3,6 @@ import { MdOutlineWhatsapp } from "react-icons/md";
 import { GoMail } from "react-icons/go";
 
 const HeroSection = () => {
-  const data = [
-    { number: 5.8, name: "acres" },
-    { number: 3, name: "towers" },
-    { number: 198, name: "apartments" },
-    { number: 34, name: "floors" },
-  ];
   return (
     <section className="relative">
       <img
