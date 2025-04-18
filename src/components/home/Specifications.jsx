@@ -71,12 +71,12 @@ const Specifications = () => {
   };
 
   return (
-    <section className="bg-[#f3f3ef] relative container !py-[60px]">
+    <section className="bg-[#f3f3ef] relative  !py-[60px]">
       <h2
         style={{
           color: "rgba(0, 0, 0, 0.5)",
         }}
-        className={`z-[2] text-[18px]  font-[500] block custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[80%] text-center poppins-regular   leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]`}
+        className={`z-[2] xl:text-[35px] text-[18px]  font-[500] block custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[80%] text-center poppins-regular   leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]`}
       >
         SPECIFICATIONS
       </h2>
@@ -86,7 +86,9 @@ const Specifications = () => {
       <div className="flex  mt-[60px] flex-wrap justify-center items-center">
         <img
           className="basis-[30%] mb-[1.7rem] xl:mb-[0rem] xl:mr-[1.5rem] object-cover h-[400px]"
-          src="/assets/home/specifications/specifications.png"
+          src={`${
+            import.meta.env.VITE_BASE_URL
+          }/assets/home/specifications/specifications.png`}
           alt="about_us"
         />
         <div className="bg-[white] p-[18px] xl:basis-[35%] h-[400px]">

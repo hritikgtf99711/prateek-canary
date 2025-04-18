@@ -1,15 +1,22 @@
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Element } from "react-scroll";
+import SideMenu from "./SideMenu";
+import { useState } from "react";
 
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
-    <Element name="header">
+    <>
+      <SideMenu setShowMenu={setShowMenu} showMenu={showMenu} />
       <header
         id="header"
         className=" xl:flex-wrap flex justify-between items-center px-[15px] xl:px-[40px] py-[10px]"
       >
         <div className="xl:basis-[25%] flex items-center">
-          <img src="/assets/home/logo.png" className="h-[40px]" alt="logo" />
+          <img
+            src={`${import.meta.env.VITE_BASE_URL}assets/home/logo.png`}
+            className="h-[40px]"
+            alt="logo"
+          />
           <span className="custom-green playfair-display-600 uppercase ml-[1rem] tracking-[1.5px]">
             Haven Realty
           </span>
@@ -21,7 +28,10 @@ const Header = () => {
           <li className="tracking-[1px] hidden xl:inline-block lg:block xl:text-[12px]">
             schedule site visit
           </li>
-          <li className="flex items-center">
+          <li
+            className="flex items-center cursor-pointer"
+            onClick={() => setShowMenu(true)}
+          >
             <RxHamburgerMenu />
             <span className="tracking-[1px] ml-[10px] xl:text-[12px]">
               Menu
@@ -29,7 +39,7 @@ const Header = () => {
           </li>
         </ul>
       </header>
-    </Element>
+    </>
   );
 };
 

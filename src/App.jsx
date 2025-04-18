@@ -83,17 +83,16 @@ export default function App() {
       >
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path={import.meta.env.VITE_BASE_URL} element={<Home />} />
           </Routes>
         </Router>
         <footer className="custom-bg-green relative pt-[40px] xl:px-[100px] pb-[100px] flex justify-center items-center flex-col text-[white]">
           <button onClick={handleScrollToTop}>
-            {" "}
             <RiArrowUpSLine className="cursor-pointer absolute xl:bottom-[14%] bottom-[8%] right-[41px] xl:right-[74px] font-[300] text-[50px]" />
           </button>
 
           <img
-            src="/assets/home/logo_white.png"
+            src={`${import.meta.env.VITE_BASE_URL}/assets/home/logo_white.png`}
             className="h-[65px] mb-[8px]"
             alt="logo"
           />
@@ -135,7 +134,7 @@ export default function App() {
       <div
         ref={scrollbarTrackRef}
         onClick={handleTrackClick}
-        className="fixed xl:top-[70px] top-[160px] rounded-full right-[15px] xl:right-[30px] z-[999] w-1 bg-white  xl:h-[76vh] h-[65vh] cursor-pointer"
+        className="fixed xl:top-[70px] top-[100px] rounded-full right-[15px] xl:right-[30px] z-[3] w-1 bg-white  xl:h-[76vh] h-[65vh] cursor-pointer"
       >
         <div
           className="bg-green-800 rounded-full transition-all duration-100"

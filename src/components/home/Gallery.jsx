@@ -32,9 +32,9 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
   return (
-    <section className="relative w-screen h-[75vh] xl:h-screen">
+    <section className="relative w-screen h-[87vh]">
       {/* Title */}
-      <h2 className="z-[2] text-[18px] xl:text-white text-black py-6 text-center xl:absolute xl:left-[55px] xl:top-[70%] xl:rotate-[-90deg] xl:translate-y-[-50%] xl:origin-top-left xl:text-[35px] tracking-[4px] uppercase font-light poppins-regular">
+      <h2 className="z-[2] text-[18px] xl:text-white text-black xl:py-0 py-6 text-center xl:absolute xl:left-[55px] xl:top-[70%] xl:rotate-[-90deg] xl:translate-y-[-50%] xl:origin-top-left xl:text-[35px] tracking-[4px] uppercase font-light poppins-regular">
         GALLERY
       </h2>
 
@@ -50,7 +50,7 @@ const Gallery = () => {
               backgroundImage: `
             linear-gradient(to top, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 30.58%),
 linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 20.58%),
-            url(${img.url})
+            url(${import.meta.env.VITE_BASE_URL + img.url})
           `,
             }}
           >
@@ -83,9 +83,9 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 20.58%),
                   }
                   `}
                 style={{
-                  // width: index === currentIndex ? "120px" : "100px",
-                  // height: index === currentIndex ? "120px" : "100px",
-                  backgroundImage: `url(${img.url})`,
+                  backgroundImage: `url(${
+                    import.meta.env.VITE_BASE_URL + img.url
+                  })`,
                 }}
               />
             ))}

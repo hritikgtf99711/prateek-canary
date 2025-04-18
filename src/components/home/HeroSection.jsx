@@ -6,8 +6,8 @@ const HeroSection = () => {
   return (
     <section className="relative">
       <img
-        src="/assets/home/bg.png"
-        className="object-cover h-[calc(100vh-80px)] w-[100vw] "
+        src={`${import.meta.env.VITE_BASE_URL}assets/home/bg.png`}
+        className="object-cover h-[calc(100vh-80px)] w-[100%]"
         alt="bg.png"
       />
       <div className="bg-[linear-gradient(180deg,_#35543D_0%,_rgba(233,238,242,0.41)_96.15%)] xl:px-[40px] text-[white] text-center absolute top-[80px] left-1/2 transform -translate-x-1/2 px-[45px] py-[30px]">
@@ -24,8 +24,8 @@ const HeroSection = () => {
           </span>
         </p>
       </div>
-      <div className="container py-[20px]  z-[99] fixed left-[0px] bg-[white] bottom-[0px]">
-        <div className="flex px-[15px] xl:px-[40px] flex-wrap poppins-medium  uppercase text-[14px] justify-between items-center">
+      <div className="py-[20px] w-screen z-[999] fixed left-[0px] bg-[white] bottom-[0px]">
+        <div className="flex px-[15px]  xl:px-[40px] flex-wrap poppins-medium  uppercase text-[14px] justify-between items-center">
           <p className="xl:flex hidden  items-center">
             PROJECTS RERA No. : XXXXXXXXXXXXXX
             <BsQrCode className="ml-[20px] w-[25px] h-[25px]" />
@@ -51,7 +51,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container !py-[40px] bg-white custom-green flex flex-wrap justify-between items-center">
+      <div className=" !py-[40px] bg-white custom-green flex flex-wrap justify-between items-center">
         <p
           className={`font-[300] xl:pb-0 pb-[2rem] xl:mb-0 uppercase text-center basis-[50%] xl:basis-[25%] 
            border-r-[1px] border-dashed border-gray-400`}

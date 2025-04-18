@@ -83,7 +83,7 @@ const Amenties = () => {
   };
 
   return (
-    <section className="w-[100vw] relative overflow-hidden bg-cover xl:h-screen h-[80vh] bg-[url('/assets/home/amenties/amenties.png')] bg-center bg-no-repeat relative">
+    <section className="w-screen relative bg-top overflow-hidden bg-cover xl:h-[87vh] h-[80vh] bg-[url('/assets/home/amenties/amenties.png')] bg-center bg-no-repeat relative">
       <h2
         style={{
           color: "rgba(255, 255, 255, 0.5)",
@@ -106,7 +106,7 @@ const Amenties = () => {
       <div className="absolute xl:flex hidden left-0 w-full bottom-[40px]  justify-center">
         <div
           ref={containerRef}
-          className="bg-[white] w-[70%]   relative flex justify-center py-[1.5rem] "
+          className="bg-[white] w-[70%]  2xl:w-[63%] relative flex justify-center py-[1.5rem] "
         >
           <button
             onClick={goPrev}

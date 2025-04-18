@@ -4,13 +4,13 @@ const Contact = () => {
       style={{
         background: "#FBFAF9",
       }}
-      className="px-[30px] xl:h-[80vh] h-[74vh] pb-[40px] relative"
+      className="px-[30px] xl:h-[80vh] 2xl:h-[60vh]  pb-[40px] relative"
     >
       <h2
         style={{
           color: "rgba(0, 0, 0, 0.5)",
         }}
-        className="z-[2] text-[13px] custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[75%] text-center poppins-regular font-[400]   leading-[41px] tracking-[5px] uppercase xl:pt-0 pt-[30px] xl:rotate-[-90deg]"
+        className="z-[2] xl:text-[35px] text-[13px] custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[80%] text-center poppins-regular font-[400]   leading-[41px] tracking-[5px] uppercase xl:pt-0 pt-[30px] xl:rotate-[-90deg]"
       >
         CONTACT US
       </h2>
@@ -51,7 +51,7 @@ const Contact = () => {
           ></textarea>
           <div className="flex basis-[100%] mt-[35px] justify-center">
             {" "}
-            <button className="text-[white] xl:w-[20%] w-[23%] text-center border-none text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]">
+            <button className="text-[white] xl:w-[20%] w-[132px] text-center border-none text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]">
               Submit
             </button>
           </div>

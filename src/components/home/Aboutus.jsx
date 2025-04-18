@@ -2,7 +2,7 @@ import CommonHeading from "../common/CommonHeading";
 
 const AboutUs = () => {
   return (
-    <section className="bg-[url(/assets/home/about-us-bg.png)] bg-[#F4F3EE] bg-blend-lighten relative container !py-[60px]">
+    <section className="bg-[url(/assets/home/about-us-bg.png)] bg-[#F4F3EE] bg-blend-lighten relative  !py-[60px]">
       <h2
         style={{
           color: "rgba(0, 0, 0, 0.5)",
@@ -27,7 +27,7 @@ const AboutUs = () => {
         </span>
       </h3>
       <div className="flex mt-[60px] flex-wrap justify-center items-center">
-        <div className="bg-[white] pr-[30px] xl:pb-[0px] pb-[30px] xl:h-[400px] poppins-regular pt-[40px] pl-[30px]  xl:basis-[40%] basis-[100%] xl:mb-[0px] mb-[30px]">
+        <div className="bg-[white] pr-[19px] xl:pb-[0px] pb-[30px] xl:h-[400px] poppins-regular pt-[30px] pl-[19px]  xl:basis-[34%] basis-[100%] xl:mb-[0px] mb-[30px]">
           <p className="text-justify xl:text-[12px] text-[14px] tracking-[1.5px] leading-[25px]">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -45,8 +45,8 @@ const AboutUs = () => {
         </div>
 
         <img
-          className="basis-[40%] object-cover h-[400px]"
-          src="/assets/home/about_us.png"
+          className="basis-[34%] object-cover h-[400px]"
+          src={`${import.meta.env.VITE_BASE_URL}assets/home/about_us.png`}
           alt="about_us"
         />
       </div>
@@ -58,7 +58,7 @@ const AboutUs = () => {
         <div className="flex justify-between xl:basis-[60%] xl:mt-0 mt-[20px] basis-[100%] items-center xl:flex-nowrap flex-wrap">
           <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
             <img
-              src="/assets/home/subway.png"
+              src={`${import.meta.env.VITE_BASE_URL}assets/home/subway.png`}
               className="block h-[50px] object-contain"
               alt="subway"
             />
@@ -68,7 +68,7 @@ const AboutUs = () => {
           </p>
           <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
             <img
-              src="/assets/home/mall.png"
+              src={`${import.meta.env.VITE_BASE_URL}assets/home/mall.png`}
               className="block h-[50px] object-contain"
               alt="mall"
             />
@@ -78,7 +78,7 @@ const AboutUs = () => {
           </p>
           <p className="flex justify-center basis-[50%] flex-col">
             <img
-              src="/assets/home/education.png"
+              src={`${import.meta.env.VITE_BASE_URL}assets/home/education.png`}
               className="block h-[50px] object-contain"
               alt="education"
             />
@@ -88,7 +88,7 @@ const AboutUs = () => {
           </p>
           <p className="flex justify-center basis-[50%] flex-col">
             <img
-              src="/assets/home/hospital.png"
+              src={`${import.meta.env.VITE_BASE_URL}assets/home/hospital.png`}
               className="block h-[50px] object-contain"
               alt="hospital"
             />

@@ -50,7 +50,7 @@ const MasterAndFloorPlans = () => {
         style={{
           color: "rgba(0, 0, 0, 0.5)",
         }}
-        className="z-[2] font-[500] text-[18px] xl:mt-0  custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[95%] text-center poppins-regular  leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]"
+        className="z-[2] font-[500] xl:text-[35px] text-[18px] xl:mt-0  custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[95%] text-center poppins-regular  leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]"
       >
         Master & Floor Plans
       </h2>
@@ -62,7 +62,11 @@ const MasterAndFloorPlans = () => {
           {initialData.map((info, i) => (
             <div className="flex justify-center" key={i}>
               {info.isActive && (
-                <img src={info.img} className="h-[340px]" alt={info.heading} />
+                <img
+                  src={`${import.meta.env.VITE_BASE_URL}` + info.img}
+                  className="h-[340px]"
+                  alt={info.heading}
+                />
               )}
             </div>
           ))}
