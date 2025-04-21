@@ -32,11 +32,9 @@ export default function ScrollWithCustomBar() {
         ref={scrollRef}
         onScroll={handleScroll}
       >
-        {/* Your scrollable content */}
         <App />
       </div>
 
-      {/* Custom scrollbar */}
       <div className="absolute top-0 right-1 w-1 h-full bg-transparent pointer-events-none">
         <div
           className="bg-green-900 rounded-full transition-all duration-100"
