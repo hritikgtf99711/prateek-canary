@@ -8,6 +8,7 @@ import Contact from "../components/home/Contact";
 import LocationMap from "../components/home/LocationMap";
 import Specifications from "../components/home/Specifications";
 import MasterAndFloorPlans from "../components/home/MasterAndFloorPlans";
+import Footer from "../components/home/Footer";
 const Home = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const Home = () => {
       <MasterAndFloorPlans />
       <Gallery />
       <Contact />
+      <Footer/>
     </>
   );
 };

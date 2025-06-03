@@ -11,7 +11,7 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 ::-webkit-scrollbar {
@@ -60,7 +60,9 @@ button {
 input,
 textarea,
 button {
-  all: unset;
+  /* all: unset;
+  
+  */
   box-sizing: border-box;
 }
 
@@ -279,3 +281,6 @@ img {
     rgba(244, 243, 238, 0.15) 100%
   );
 }
+.swiper_container .swiper-wrapper{align-items: center;}
+.swiper_container_master_plan .swiper-slide.swiper-slide-active{font-weight: 600;}
+.amenities_box img:hover{opacity: 1;}

@@ -3,46 +3,75 @@ import { HiMinus, HiPlus } from "react-icons/hi";
 const specifications = [
   {
     id: "01",
-    question: "Flooring",
-    answer:
-      " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    //   "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Living / Dining",
+    answer: `Walls - POP Punning Work and Oil Bound Distemper
+Floor - High - End Vitrified Tiles
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Designer Entry Door of 8 Feet Height
+Windows - Anodized Aluminium Window / UPVC
+Electrical - Modular Electric Switches`, //   "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
   },
   {
     id: "02",
-    question: "kitchen",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Master Bedroom",
+    answer: `Walls - POP Punning Work and Oil Bound Distemper
+Floor - Laminated Wooden Flooring
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Skin Moulded Paneled Door / Laminated Flush Door
+Windows - Anodized Aluminium Window / UPVC
+Electrical - Modular Electric Switches
+`,
   },
   {
     id: "03",
-    question: "Entrance Lobby",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Bedroom",
+    answer: `Walls - POP Punning Work and Oil Bound Distemper
+Floor - High - End Vitrified Tiles
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Skin Moulded Paneled Door / Laminated Flush Door
+Electrical - Modular Electric Switches`,
   },
   {
     id: "04",
-    question: "windows",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Toilets",
+    answer: `Walls - Ceramic Tiles cladded up to 7 Feet Height
+Floor - Anti Skid Ceramic Tiles
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Skin Moulded Paneled Door / Laminated Flush Door
+Windows - Anodized Aluminium Window / UPVC
+Sanitary Ware - W.C. Washbasin & C.P Fittings
+Electrical - Modular Electric Switches`,
   },
   {
     id: "05",
-    question: "doors",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Kitchen",
+    answer: `Walls - Ceramic Tiles cladded up to 2 Feet Height Above Granite Counter
+Floor - High - End Vitrified Tiles
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Powder Coated Aluminium Door / UPVC Door
+Windows - Anodized Aluminium Window / UPVC
+Sanitary Ware - C.P. Fittings with Double Bowl Stainless Steel Sink
+Electrical - Modular Electric Switches
+`,
   },
   {
     id: "06",
-    question: "safety",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Balconies",
+    answer: `Walls - External Weather Proof Paint
+Floor - Anti Skid Ceramic Tiles
+Doors - Powder Coated Aluminium Door / UPVC Door
+Windows - Anodized Aluminium Window / UPVC
+Electrical - Modular Electric Switches`,
   },
   {
     id: "07",
-    question: "Plumbing, Bathroom and Toilets",
-    answer:
-      "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    question: "Servant /  Study Room",
+    answer: `Walls - POP Punning Work and Oil Bound Distemper
+Floor - High - End Vitrified Tiles
+Ceiling - POP Punning Work and Oil Bound Distemper
+Doors - Skin Moulded Paneled Door / Laminated Flush Door
+Windows - Anodized Aluminium Window / UPVC
+Electrical - Modular Electric Switches`,
   },
 ];
 
@@ -71,7 +100,7 @@ const Specifications = () => {
   };
 
   return (
-    <section className="bg-[#f3f3ef] relative  !py-[60px]">
+    <section id="specifications" className="bg-[#f3f3ef] relative  !py-[60px]">
       <h2
         style={{
           color: "rgba(0, 0, 0, 0.5)",
@@ -128,9 +157,14 @@ const Specifications = () => {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-3 text-[12px] text-justify mt-[20px] !font-[400] poppins-regular">
-                          {item.answer}
-                        </p>
+                        {item.answer.split("\n").map((line, index) => (
+                          <p
+                            className=" text-[12px]  mt-[10px] !font-[400] poppins-regular"
+                            key={index}
+                          >
+                            {line}
+                          </p>
+                        ))}
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 {
   "name": "my-react-app",
-  "homepage": "https://layout.gtftechnologies.com/demo-layout/",
+  "homepage": "https://websitedesigningcompany.co.in/demo-layout/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -33,5 +33,16 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.2.0"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vikasgtf1/haven_realty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vikasgtf1/haven_realty/issues"
   }
 }

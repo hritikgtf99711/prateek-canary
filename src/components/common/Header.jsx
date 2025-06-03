@@ -1,31 +1,76 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 import SideMenu from "./SideMenu";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useEnquiryForm } from "../../hooks/useEnquiryForm";
+import { NavLink } from "react-router-dom";
+import EnquiryForm from "./enquiryForm";
 
 const Header = () => {
+  const { isOpen, openForm, closeForm } = useEnquiryForm();
   const [showMenu, setShowMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const triggerRef = useRef(null); 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsScrolled(!entry.isIntersecting);
+      },
+      {
+        threshold: 0, 
+        rootMargin: "0px 0px -100px 0px", 
+      }
+    );
+
+    const homeElement = document.querySelector("#content_banner") || triggerRef.current;
+    if (homeElement) {
+      observer.observe(homeElement);
+    }
+
+    return () => {
+      if (homeElement) {
+        observer.unobserve(homeElement);
+      }
+    };
+  }, []);
+
   return (
     <>
       <SideMenu setShowMenu={setShowMenu} showMenu={showMenu} />
       <header
         id="header"
-        className=" xl:flex-wrap flex justify-between items-center px-[15px] xl:px-[40px] py-[10px]"
+        className="xl:flex-wrap flex fixed w-full top-[0] left-[0] z-[999] bg-white justify-between items-center px-[15px] xl:px-[40px] pt-[10px] pb-[14px]"
       >
         <div className="xl:basis-[25%] flex items-center">
           <img
-            src={`${import.meta.env.VITE_BASE_URL}assets/home/logo.png`}
+            src={`${
+              import.meta.env.VITE_BASE_URL
+            }assets/home/${
+              isScrolled ? "logo-canary-new.png" : "logo-1.png"
+            }`}
             className="h-[40px]"
             alt="logo"
           />
-          <span className="custom-green playfair-display-600 uppercase ml-[1rem] tracking-[1.5px]">
-            Haven Realty
-          </span>
         </div>
-        <ul className="xl:basis-[30%] flex justify-between items-center poppins-medium  uppercase text-[14px]">
+        <ul className="2xl:basis-[24%] xl:basis-[26%] flex justify-between items-center poppins-medium uppercase text-[14px]">
           <li className="tracking-[1px] hidden xl:inline-block xl:text-[12px]">
-            find us
+            <NavLink
+              to="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
+            >
+              find us
+            </NavLink>
           </li>
-          <li className="tracking-[1px] hidden xl:inline-block lg:block xl:text-[12px]">
+          <li
+            onClick={openForm}
+            className="tracking-[1px] cursor-pointer hidden xl:inline-block lg:block xl:text-[12px]"
+          >
             schedule site visit
           </li>
           <li
@@ -38,7 +83,10 @@ const Header = () => {
             </span>
           </li>
         </ul>
+        <EnquiryForm isOpen={isOpen} onClose={closeForm} />
       </header>
+      {/* Optional: Add a ref element if #home is not in this component */}
+      <div ref={triggerRef} style={{ height: "1px" }} />
     </>
   );
 };

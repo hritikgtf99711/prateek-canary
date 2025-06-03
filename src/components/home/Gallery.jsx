@@ -5,19 +5,19 @@ import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 const images = [
   {
     id: 1,
-    url: "/assets/home/gallery/1.jpg",
+    url: "/assets/home/gallery/new-2.jpg",
   },
   {
     id: 2,
-    url: "/assets/home/gallery/2.jpg",
+    url: "/assets/home/gallery/new-1.jpg",
   },
   {
     id: 3,
-    url: "/assets/home/gallery/3.jpg",
+    url: "/assets/home/specifications/specifications.png",
   },
   {
     id: 4,
-    url: "/assets/home/gallery/4.png",
+    url: "/assets/home/main-bg-4.webp",
   },
 ];
 
@@ -32,7 +32,7 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
   return (
-    <section className="relative w-screen h-[87vh]">
+    <section id="gallery" className="relative w-screen h-[87vh]">
       {/* Title */}
       <h2 className="z-[2] text-[18px] xl:text-white text-black xl:py-0 py-6 text-center xl:absolute xl:left-[55px] xl:top-[70%] xl:rotate-[-90deg] xl:translate-y-[-50%] xl:origin-top-left xl:text-[35px] tracking-[4px] uppercase font-light poppins-regular">
         GALLERY
@@ -55,8 +55,8 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 20.58%),
             }}
           >
             <h2 className="text-white text-[13px] leading-[23px] px-[10px] xl:text-[15px] xl:tracking-[2px] xl:leading-[28px]  sm:text-[18px] uppercase font-light text-center pt-10  sm:leading-[30px] tracking-[1px] max-w-[90%] mx-auto z-[2] playfair-display-400">
-              See the Spaces Where Memories Begin – A Visual Journey Through
-              Your Future Home.
+              See the Spaces Where Memories Begin – A Visual
+              <span className="block">Journey Through Your Future Home.</span>
             </h2>
           </div>
         ))}
@@ -64,7 +64,7 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 20.58%),
         {/* Navigation Controls */}
         <div className="absolute xl:bottom-[30px] bottom-[108px] w-full px-4 flex justify-center items-center gap-2 xl:gap-5 z-[3]">
           {/* Left Arrow */}
-          <button onClick={prevSlide} className=" block">
+          <button onClick={prevSlide} className=" block cursor-pointer">
             <RiArrowLeftSLine className="text-white text-3xl sm:text-4xl" />
           </button>
 
@@ -92,7 +92,7 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 20.58%),
           </div>
 
           {/* Right Arrow */}
-          <button onClick={nextSlide} className="block">
+          <button onClick={nextSlide} className="block cursor-pointer">
             <RiArrowRightSLine className="text-white text-3xl sm:text-4xl" />
           </button>
         </div>

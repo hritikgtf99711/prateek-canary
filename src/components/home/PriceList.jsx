@@ -1,8 +1,38 @@
 import CommonHeading from "../common/CommonHeading";
-
+import EnquiryForm from "../common/enquiryForm";
+import { useEnquiryForm } from "../../hooks/useEnquiryForm";
+const units = [
+  {
+    type: "3 BHK Elite",
+    area: "1700 Sq. Ft.",
+    price: "₹ 2.92 Cr* Onwards",
+  },
+  {
+    type: "3 BHK Deluxe",
+    area: "2040 Sq. Ft.",
+    price: "On Request",
+  },
+  {
+    type: "3 BHK Luxury",
+    area: "2555 Sq. Ft.",
+    price: "On Request",
+  },
+  {
+    type: "4 BHK Luxury",
+    area: "3355 Sq. Ft.",
+    price: "On Request",
+  },
+  {
+    type: "Duplex Penthouse",
+    area: "6100 Sq. Ft.",
+    price: "On Request",
+  },
+];
 const PriceList = () => {
+  const { isOpen, openForm, closeForm } = useEnquiryForm();
+
   return (
-    <section>
+    <section id="pricelist">
       <div className="bg-[rgb(243,243,239)]  relative pt-[60px] xl:px-[0px] px-[25px]">
         <CommonHeading
           text={"Price List"}
@@ -29,58 +59,38 @@ const PriceList = () => {
           </span>
         </h2>
         <div className="flex flex-col items-center justify-center py-[60px]">
-          <ul className="xl:w-[70%] w-[100%] mx-0 my-auto popping-regular-400">
-            <li className="bg-[#fff] flex  justify-between xl:flex-row flex-col xl:items-center items-center px-[26px] py-[15px] mb-[30px]">
-              <p className="xl:text-[14px] text-[17px] xl:my-0 my-[22px] tracking-[2px] font-[300]">
-                3 BHK+ 3T + U
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] tracking-[2px] font-[300]">
-                1600 - 1654 Sq. Ft.
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] font-[450]">
-                ₹ 3.11 Cr* Onwards
-              </p>
-              <button className=" text-[white] border-none xl:mb-0 mb-[22px] text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]">
-                INTERESTED
-              </button>
-            </li>
-            <li className="bg-[#fff] flex xl:items-center justify-between xl:flex-row flex-col xl:items-start items-center px-[26px] py-[15px] mb-[30px]">
-              <p className="xl:text-[14px] text-[17px] xl:my-0 my-[22px] tracking-[2px] font-[300]">
-                3 BHK+ 3T + U{" "}
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] tracking-[2px] font-[300]">
-                1600 - 1654 Sq. Ft.
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] font-[450]">
-                ₹ 3.11 Cr* Onwards
-              </p>
-              <button className=" text-[white] border-none xl:mb-0 mb-[22px] text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]">
-                INTERESTED
-              </button>
-            </li>
-            <li className="bg-[#fff] flex xl:items-center justify-between xl:flex-row flex-col xl:items-start items-center px-[26px] py-[15px] mb-[30px]">
-              <p className="xl:text-[14px] text-[17px] xl:my-0 my-[22px] tracking-[2px] font-[300]">
-                3 BHK+ 3T + U{" "}
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] tracking-[2px] font-[300]">
-                1600 - 1654 Sq. Ft.
-              </p>
-              <p className="xl:text-[14px] text-[17px] xl:mb-0  mb-[22px] font-[450]">
-                ₹ 3.11 Cr* Onwards
-              </p>
-              <button className=" text-[white] border-none xl:mb-0 mb-[22px] text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]">
-                INTERESTED
-              </button>
-            </li>
+          <ul className="xl:w-[70%] w-[100%] mx-0  my-auto popping-regular-400">
+            {units.map((unit, index) => (
+              <li
+                key={index}
+                className="bg-[#fff] flex justify-between flex-wrap xl:flex-row flex-col xl:items-center items-center px-[26px] py-[15px] mb-[20px]"
+              >
+                <p className="xl:text-[14px] basis-[23%] text-[17px] xl:my-0 my-[22px] tracking-[2px] font-[300]">
+                  {unit.type}
+                </p>
+                <p className="xl:text-[14px] basis-[23%] text-[17px] xl:mb-0 mb-[22px] tracking-[2px] font-[300]">
+                  {unit.area}
+                </p>
+                <p className="xl:text-[14px] basis-[23%] text-[17px] xl:mb-0 mb-[22px] font-[450]">
+                  {unit.price}
+                </p>
+                <button
+                  onClick={openForm}
+                  className="text-[white] cursor-pointer basis-[20%] text-center border-none xl:mb-0 mb-[22px] text-[11px] tracking-[1px] outline-none custom-bg-green px-[20px] py-[10px]"
+                >
+                  INTERESTED
+                </button>
+              </li>
+            ))}
           </ul>
         </div>{" "}
       </div>
 
       <div className="bg-white flex justify-center  xl:py-0 py-[30px] flex-wrap">
         <div className="flex xl:basis-[75%] bg-white xl:py-[65px]  flex-wrap justify-between  items-center ">
-          <p className="xl:basis-[17%] basis-[100%]  custom-green flex flex-col xl:items-start items-center playfair-display-600">
+          <p className="xl:basis-[17%] basis-[100%] lg:justify-end justify-center  custom-green  flex lg:flex-col xl:items-start items-center playfair-display-600">
             <span> WHY INVEST </span>
-            <span>IN NOIDA?</span>{" "}
+            <span>IN NOIDA?</span>
           </p>
           <div className="flex justify-between xl:basis-[80%] xl:mt-0 mt-[20px] basis-[100%] items-center xl:flex-nowrap flex-wrap">
             <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
@@ -142,6 +152,7 @@ const PriceList = () => {
           </div>
         </div>
       </div>
+      <EnquiryForm isOpen={isOpen} onClose={closeForm} />
     </section>
   );
 };
