@@ -8,7 +8,8 @@ const ThankYouPage = () => {
     <div className="bg-[#f9fbf4] flex items-center justify-center py-[80px]">
       <div className="w-full max-w-2xl text-center">
         <div className="mx-auto mb-6 flex items-center justify-center text-2xl">
-          <img
+          <img  loading="lazy" 
+  decoding="async"
             src="./assets/home/logo-canary-new.png"
             className="w-[200px]"
             alt="canary logo"

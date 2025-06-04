@@ -42,7 +42,7 @@ const Header = () => {
         className="xl:flex-wrap flex fixed w-full top-[0] left-[0] z-[999] bg-white justify-between items-center px-[15px] xl:px-[40px] pt-[10px] pb-[14px]"
       >
         <div className="xl:basis-[25%] flex items-center">
-          <img
+          <img 
             src={`${
               import.meta.env.VITE_BASE_URL
             }assets/home/${

@@ -17,6 +17,8 @@ export default {
         md: "768px",
         lg: "1024px",
         xl: "1280px",
+        dell:'1366px',
+        lgmac:"1440px",
         "2xl": "1336px",
       },
     },

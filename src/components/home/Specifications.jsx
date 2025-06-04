@@ -4,76 +4,90 @@ const specifications = [
   {
     id: "01",
     question: "Living / Dining",
-    answer: `Walls - POP Punning Work and Oil Bound Distemper
-Floor - High - End Vitrified Tiles
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Designer Entry Door of 8 Feet Height
-Windows - Anodized Aluminium Window / UPVC
-Electrical - Modular Electric Switches`, //   "If you go over your organisations or user limit, a member of the team will reach out about bespoke pricing. In the meantime, our collaborative features won't appear in accounts or users that are over the 100-account or 1,000-user limit.",
+    answerLines: [
+      ["Walls", "POP Punning Work and Oil Bound Distemper"],
+      ["Floor", "High - End Vitrified Tiles"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Designer Entry Door of 8 Feet Height"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "02",
     question: "Master Bedroom",
-    answer: `Walls - POP Punning Work and Oil Bound Distemper
-Floor - Laminated Wooden Flooring
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Skin Moulded Paneled Door / Laminated Flush Door
-Windows - Anodized Aluminium Window / UPVC
-Electrical - Modular Electric Switches
-`,
+    answerLines: [
+      ["Walls", "POP Punning Work and Oil Bound Distemper"],
+      ["Floor", "Laminated Wooden Flooring"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "03",
     question: "Bedroom",
-    answer: `Walls - POP Punning Work and Oil Bound Distemper
-Floor - High - End Vitrified Tiles
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Skin Moulded Paneled Door / Laminated Flush Door
-Electrical - Modular Electric Switches`,
+    answerLines: [
+      ["Walls", "POP Punning Work and Oil Bound Distemper"],
+      ["Floor", "High - End Vitrified Tiles"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "04",
     question: "Toilets",
-    answer: `Walls - Ceramic Tiles cladded up to 7 Feet Height
-Floor - Anti Skid Ceramic Tiles
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Skin Moulded Paneled Door / Laminated Flush Door
-Windows - Anodized Aluminium Window / UPVC
-Sanitary Ware - W.C. Washbasin & C.P Fittings
-Electrical - Modular Electric Switches`,
+    answerLines: [
+      ["Walls", "Ceramic Tiles cladded up to 7 Feet Height"],
+      ["Floor", "Anti Skid Ceramic Tiles"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Sanitary Ware", "W.C. Washbasin & C.P Fittings"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "05",
     question: "Kitchen",
-    answer: `Walls - Ceramic Tiles cladded up to 2 Feet Height Above Granite Counter
-Floor - High - End Vitrified Tiles
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Powder Coated Aluminium Door / UPVC Door
-Windows - Anodized Aluminium Window / UPVC
-Sanitary Ware - C.P. Fittings with Double Bowl Stainless Steel Sink
-Electrical - Modular Electric Switches
-`,
+    answerLines: [
+      ["Walls", "Ceramic Tiles cladded up to 2 Feet Height Above Granite Counter"],
+      ["Floor", "High - End Vitrified Tiles"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Powder Coated Aluminium Door / UPVC Door"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Sanitary Ware", "C.P. Fittings with Double Bowl Stainless Steel Sink"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "06",
     question: "Balconies",
-    answer: `Walls - External Weather Proof Paint
-Floor - Anti Skid Ceramic Tiles
-Doors - Powder Coated Aluminium Door / UPVC Door
-Windows - Anodized Aluminium Window / UPVC
-Electrical - Modular Electric Switches`,
+    answerLines: [
+      ["Walls", "External Weather Proof Paint"],
+      ["Floor", "Anti Skid Ceramic Tiles"],
+      ["Doors", "Powder Coated Aluminium Door / UPVC Door"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
   },
   {
     id: "07",
     question: "Servant /  Study Room",
-    answer: `Walls - POP Punning Work and Oil Bound Distemper
-Floor - High - End Vitrified Tiles
-Ceiling - POP Punning Work and Oil Bound Distemper
-Doors - Skin Moulded Paneled Door / Laminated Flush Door
-Windows - Anodized Aluminium Window / UPVC
-Electrical - Modular Electric Switches`,
-  },
+    answerLines: [
+      ["Walls", "POP Punning Work and Oil Bound Distemper"],
+      ["Floor", "High - End Vitrified Tiles"],
+      ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
+      ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
+      ["Windows", "Anodized Aluminium Window / UPVC"],
+      ["Electrical", "Modular Electric Switches"]
+    ]
+  }
 ];
+
+
 
 const Specifications = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -105,7 +119,7 @@ const Specifications = () => {
         style={{
           color: "rgba(0, 0, 0, 0.5)",
         }}
-        className={`z-[2] xl:text-[35px] text-[18px]  font-[500] block custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[80%] text-center poppins-regular   leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]`}
+        className={`z-[2] xl:text-[35px] text-[18px]  font-[500] block custom-sub-heading-color xl:origin-top-left xl:translate-y-[-50%]  xl:absolute xl:left-[55px] xl:top-[93%] text-center poppins-regular   leading-[41px] tracking-[5px] uppercase xl:rotate-[-90deg]`}
       >
         SPECIFICATIONS
       </h2>
@@ -113,7 +127,8 @@ const Specifications = () => {
         Specifications That Set New Standards in Luxury and Craftsmanship
       </h3>
       <div className="flex  mt-[60px] flex-wrap justify-center items-center">
-        <img
+        <img  loading="lazy" 
+  decoding="async"
           className="basis-[30%] mb-[1.7rem] xl:mb-[0rem] xl:mr-[1.5rem] object-cover h-[400px]"
           src={`${
             import.meta.env.VITE_BASE_URL
@@ -157,15 +172,12 @@ const Specifications = () => {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        {item.answer.split("\n").map((line, index) => (
-                          <p
-                            className=" text-[12px]  mt-[10px] !font-[400] poppins-regular"
-                            key={index}
-                          >
-                            {line}
-                          </p>
-                        ))}
-                      </div>
+                        {item.answerLines.map(([label, value], index) => (
+    <p className="flex text-[12px] mt-[10px] !font-[400] poppins-regular" key={index}>
+      <span className="min-w-[100px]">{label} - </span>
+      <span>{value}</span>
+    </p>
+  ))}     </div>
                     </div>
                   </div>
                 ))}

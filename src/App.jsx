@@ -5,6 +5,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import "./index.css";
 import React, { useRef, useEffect, useState } from "react";
 import Desclaimer from "./pages/Desclaimer";
+
 export default function App() {
   const scrollRef = useRef(null);
   const scrollbarTrackRef = useRef(null);
@@ -75,6 +76,7 @@ export default function App() {
 
     container.scrollTo({ top: newScrollTop, behavior: "smooth" });
   };
+
   return (
     <div className="relative h-screen w-full bg-gray-100 overflow-hidden flex justify-center">
       <div

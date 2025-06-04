@@ -5,11 +5,42 @@ import { MdOutlineWhatsapp } from "react-icons/md";
 import { GoMail } from "react-icons/go";
 import { useEnquiryForm } from "../../hooks/useEnquiryForm";
 import EnquiryForm from "../common/enquiryForm";
+
 const HeroSection = () => {
   const { isOpen, openForm, closeForm } = useEnquiryForm();
   const [showBar, setShowBar] = useState(false);
   const triggerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+ useEffect(() => {
+  const bgImage = new Image();
+  const logoImage = new Image();
+
+  bgImage.src = isMobile
+    ? `${import.meta.env.VITE_BASE_URL}assets/home/main-bg-mb.webp`
+    : `${import.meta.env.VITE_BASE_URL}assets/home/main-bg-4-new.webp`;
+
+  logoImage.src = `${import.meta.env.VITE_BASE_URL}assets/home/logo-canary-new.png`;
+
+  let loadedCount = 0;
+  const onLoad = () => {
+    loadedCount++;
+    if (loadedCount === 2) {
+      setIsLoaded(true);
+    }
+  };
+
+  [bgImage, logoImage].forEach((img) => {
+    if (img.complete) {
+      onLoad();
+    } else {
+      img.onload = onLoad;
+      img.onerror = onLoad;
+    }
+  });
+}, [isMobile]);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,20 +77,28 @@ const HeroSection = () => {
     };
   }, []);
   return (
-    <section className="relative " id="home">
-      <img
+    <section className={`relative ${
+        isLoaded ? 'opacity-100' : 'opacity-0'
+      }`}  id="home">
+
+        {!isLoaded && (
+  <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-white">
+    <div className="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+  </div>
+)}
+      <img  
         src={
           isMobile
-            ? `${import.meta.env.VITE_BASE_URL}assets/home/main-bg.jpg`
-            : `${import.meta.env.VITE_BASE_URL}assets/home/main-bg-4.webp`
+            ? `${import.meta.env.VITE_BASE_URL}assets/home/main-bg-mb.webp`
+            : `${import.meta.env.VITE_BASE_URL}assets/home/main-bg-4-new.webp`
         }
         className="object-cover w-[100%]"
         alt="bg.png"
       />
       <div className="flex justify-center">
         {" "}
-        <div id="content_banner" className="absolute 2xl:top-[120px] xl:top-[100px] top-[90px] w-[100%] lg:min-w-[1300px] flex flex-col items-center flex-wrap">
-          <img
+        <div id="content_banner" className="absolute xl:top-[82px] lgmac:top-[120px]  top-[90px] w-[100%] lg:min-w-[1300px] flex flex-col items-center flex-wrap">
+          <img  
             src={`${
               import.meta.env.VITE_BASE_URL
             }assets/home/logo-canary-new.png`}
@@ -71,16 +110,16 @@ const HeroSection = () => {
               <span className="text-[30px] mb-[4px]">40:60</span>
               <span className="tracking-[1.6] text-[12px] font-[500]">LIMITED PERIOD OFFER</span>
             </p>
-            <img
+            <img  
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line.svg`}
               alt="line"
               className="lg:h-[100px] lg:block hidden lg:w-[2px] w-[100%] h-[2px]"
             />
             <p className="lg:basis-[32%] basis-[100%]   tracking-[2px] lg:text-[15px] text-[14px] leading-[24px]  uppercase  flex flex-col items-center">
               <span className="lg:text-[20px] text-[18px] text-center mb-[10px] leading-[1.6] font-[400]">3/4 BHK &  Duplex <span className="lg:block"></span> Penthouses</span>
-              <span className="tracking-[1.6] text-[12px] font-[500]">Spacious Residencies</span>
+              <span className="tracking-[1.6] text-[12px] font-[500]">Spacious Residencies At Sector 150 Noida</span>
             </p>
-            <img
+            <img 
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line.svg`}
               alt="line"
               className="lg:h-[100px] lg:w-[2px]  lg:block hidden w-[100%] h-[2px]"
@@ -91,7 +130,7 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="2xl:mt-[40px] my-[35px]">
-            <img
+            <img 
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line-price.svg`}
               alt="line"
               className="lg:h-[0.5px] h-[0.7px]  w-[100%]"
@@ -99,7 +138,7 @@ const HeroSection = () => {
             <p className="h-[50px] leading-[50px] text-[20px] tracking-[2.5px] uppercase text-center">
               ₹2.92 Cr* onwards
             </p>
-            <img
+            <img 
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line-price.svg`}
               alt="line"
               className="lg:h-[0.5px] h-[0.7px]  w-[100%]"
@@ -121,20 +160,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* <div className="bg-[linear-gradient(180deg,_#35543D_0%,_rgba(233,238,242,0.41)_96.15%)] xl:px-[40px] text-[white] text-center absolute top-[80px] left-1/2 transform -translate-x-1/2 px-[45px] py-[30px]">
-        <h2 className="text-white mb-[30px] text-center font-[400]  xl:text-[20px] text-[20px] playfair-display-400 xl:leading-[28px] leading-[35px] tracking-[5px] uppercase">
-          <span className="poppins-regular">2 & 3</span> BHK Luxury <br />
-          Apartments
-        </h2>
-        <p className="mt-[4rem] mb-[2rem]">
-          <span className="xl:text-[43px] font-[200] text-[35px]   block">
-            ₹96
-          </span>
-          <span className="xl:text-[20px] text-[30px] tracking-[2px] playfair-display-400">
-            Lacs Onwards
-          </span>
-        </p>
-      </div> */}  
+      
       {/* Trigger element - invisible div that determines when to show/hide the bar */}
       <div
         ref={triggerRef}
@@ -142,24 +168,28 @@ const HeroSection = () => {
         aria-hidden="true"
       />
       <div
-        className={`py-[10px] z-[999999] w-screen fixed left-0 bg-white bottom-0 transform transition-all duration-500 ease-in-out ${
+        className={`py-[10px] z-[999999] !bg-[#feca04] w-screen fixed left-0  bottom-0 transform transition-all duration-500 ease-in-out ${
           showBar ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
         <div className="flex px-[15px]  xl:px-[40px] flex-wrap poppins-medium  uppercase text-[14px] justify-between items-center">
           <p className="flex   items-center">
-          <span className="lg:block hidden">  PROJECTS RERA No. : </span> <span className="lg:text-[normal] lg:text-[14px] text-[10px]">UPRERAPRJ591510</span>
-            <img
+          <span className="lg:block hidden">  PROJECTS RERA No. :  </span> <span className="lg:text-[normal] lg:text-[14px] text-[10px]"> UPRERAPRJ591510</span>
+            <img  loading="lazy" 
+  decoding="async"
               src={`${import.meta.env.VITE_BASE_URL}assets/home/rera.png`}
               className="ml-[20px] w-[25px] lg:block hidden h-[25px]"
             />
           </p>
           <div className="2xl:basis-[38%]  xl:basis-[42%]  flex justify-end items-center">
-           
-            <p className="flex items-center lg:mr-[35px] mr-[50px]">
+           <a href="tel:+919654886622" className="flex items-center lg:mr-[35px] mr-[50px]">
+  <IoCallOutline className="xl:mr-[15px] xl:text-[20px] text-[16px] mr-[8px]" />
+  <span className="xl:text-[14px] text-[10px]">+91 9654886622</span>
+</a>
+            {/* <p className="flex items-center lg:mr-[35px] mr-[50px]">
               <IoCallOutline className="xl:mr-[15px] xl:text-[20px] text-[16px] mr-[8px]" />
               <span className="xl:text-[14px] text-[10px]">+91 9654886622</span>
-            </p>
+            </p> */}
             <p className="flex items-center cursor-pointer" onClick={openForm}>
               <GoMail className="xl:mr-[15px] xl:text-[20px] text-[16px] mr-[8px]" />
               <span className="xl:text-[14px] text-[10px]"> enquire now</span>

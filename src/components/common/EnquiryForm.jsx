@@ -6,7 +6,8 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
     name: "",
     email: "",
     contact: "",
-    message: ""
+    message: "",
+    authorize: true
   });
   
   const [errors, setErrors] = useState({});
@@ -40,23 +41,27 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
         if (value.trim().length < 10) return 'Message must be at least 10 characters';
         if (value.trim().length > 500) return 'Message must not exceed 500 characters';
         return '';
-        
+
+      case 'authorize':
+        if (!value) return 'You must authorize us to contact you';
+        return '';
+
       default:
         return '';
     }
   };
 
-  // Handle input changes
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
+    const fieldValue = type === 'checkbox' ? checked : value;
+    
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: fieldValue
     }));
 
-    // Real-time validation
     if (touched[name]) {
-      const error = validateField(name, value);
+      const error = validateField(name, fieldValue);
       setErrors(prev => ({
         ...prev,
         [name]: error
@@ -91,12 +96,14 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
     setTouched({
       name: true,
       email: true,
-      contact: true,
-      message: true
+      phonenumber: true,
+      message: true,
+      authorize: true
     });
     
     return Object.keys(newErrors).length === 0;
   };
+
 
   // Handle form submission
   const onSubmit = async (e) => {
@@ -145,10 +152,11 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
       >
         <div
           style={{ backgroundColor: "rgba(53, 84, 61, 0.93)" }}
-          className="xl:!max-w-[65%] p-[30px] text-white relative text-center tracking-[1.5px] uppercase"
+          className="xl:!max-w-[40%] p-[30px] text-white relative text-center tracking-[1.5px] uppercase"
         >
           <div className="text-center font-playfair">
-            <img 
+            <img  loading="lazy" 
+  decoding="async" 
               src="./assets/home/logo-canary-white.png" 
               className="w-[150px] m-[auto] mb-[30px]" 
               alt="canary"
@@ -244,8 +252,8 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
                   errors.message ? 'border-red-500' : 'border-[white]'
                 }`}
                 name="message"
-                cols={54}
-                rows={4}
+                cols={35}
+                rows={1}
                 placeholder="MESSAGE"
                 value={formData.message}
                 onChange={handleInputChange}
@@ -259,6 +267,40 @@ const EnquiryForm = ({ isOpen, onClose, projectName = "Default Project" }) => {
               )}
              
             </div>
+{/* checbox */}
+               <div className="mt-[30px] text-center w-full">
+            <span className="poppins-medium text-center text-[9px]">
+              <span className="block flex items-center justify-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={formData.authorize}
+                  className={`h-[15px] w-[15px] accent-[#104735] ${
+                    errors.authorize ? 'ring-2 ring-red-500' : ''
+                  }`}
+                  name="authorize"
+                  id="authorize" 
+                  onChange={handleInputChange}
+                  onBlur={handleInputBlur}
+                  disabled={loading}
+                />
+                <label htmlFor="authorize" className="cursor-pointer">
+                  I authorize company representatives to Call, SMS,
+                </label>
+              </span>
+       
+       
+            </span>
+         <span className="leading-[15px] text-[9px]">Email or WhatsApp me about its products and offers. This 
+          <span className="block">consent
+              overrides any registration for DNC/NDNC.</span>
+          </span> 
+            {errors.authorize && (
+              <p className="text-red-600 text-xs mt-1">
+                {errors.authorize}
+              </p>
+            )}
+          </div>
+
 
             {/* Submit Button */}
             <div className="w-full text-center">

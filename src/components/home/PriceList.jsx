@@ -94,7 +94,8 @@ const PriceList = () => {
           </p>
           <div className="flex justify-between xl:basis-[80%] xl:mt-0 mt-[20px] basis-[100%] items-center xl:flex-nowrap flex-wrap">
             <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
-              <img
+              <img  loading="lazy" 
+  decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
                   "/assets/home/priceList/skyline.png"
@@ -109,7 +110,8 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
-              <img
+              <img  loading="lazy" 
+  decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
                   "/assets/home/priceList/businessman.png"
@@ -123,7 +125,8 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] flex-col">
-              <img
+              <img  loading="lazy" 
+  decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
                   "/assets/home/priceList/stock-market.png"
@@ -136,7 +139,8 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] flex-col">
-              <img
+              <img  loading="lazy" 
+  decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
                   "/assets/home/priceList/smart-city.png"
