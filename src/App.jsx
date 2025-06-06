@@ -16,7 +16,7 @@ export default function App() {
     if (window.innerWidth <= 991) {
       return 0.6499 * window.innerHeight;
     } else {
-      return 0.769 * window.innerHeight; 
+      return 0.769 * window.innerHeight;
     }
   }
 
@@ -87,17 +87,59 @@ export default function App() {
         <Router>
           <Routes>
             <Route path={import.meta.env.VITE_BASE_URL} element={<Home />} />
-            <Route path={import.meta.env.VITE_BASE_URL+"thank-you"} element={<ThankYouPage />} /> 
-            <Route path={import.meta.env.VITE_BASE_URL+"desclaimer"} element={<Desclaimer />} /> 
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "remarketing"}
+              element={<Home />}
+            />
+
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "demand-gen"}
+              element={<Home />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "branding"}
+              element={<Home />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "thank-you"}
+              element={<ThankYouPage />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "demand-gen/thank-you"}
+              element={<ThankYouPage />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "remarketing/thank-you"}
+              element={<ThankYouPage />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "branding/thank-you"}
+              element={<ThankYouPage />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "demand-gen/disclaimer"}
+              element={<Desclaimer />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "remarketing/disclaimer"}
+              element={<Desclaimer />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "branding/disclaimer"}
+              element={<Desclaimer />}
+            />
+            <Route
+              path={import.meta.env.VITE_BASE_URL + "disclaimer"}
+              element={<Desclaimer />}
+            />
           </Routes>
         </Router>
-        
       </div>
 
       <div
         ref={scrollbarTrackRef}
         onClick={handleTrackClick}
-        className="fixed  top-[52%] z-[99999] translate-y-[-50%] rounded-full right-[15px] xl:right-[30px] z-[3] w-1 bg-white  xl:h-[76vh] h-[65vh] cursor-pointer"
+        className="fixed  top-[52%] z-[99999] translate-y-[-50%] rounded-full right-[15px] xl:right-[30px] z-[3] w-[0.12rem] xl:w-1 bg-white  xl:h-[76vh] h-[65vh] cursor-pointer"
       >
         <div
           className="bg-green-800 rounded-full transition-all duration-100"

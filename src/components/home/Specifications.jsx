@@ -10,8 +10,8 @@ const specifications = [
       ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
       ["Doors", "Designer Entry Door of 8 Feet Height"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "02",
@@ -22,8 +22,8 @@ const specifications = [
       ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
       ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "03",
@@ -33,8 +33,8 @@ const specifications = [
       ["Floor", "High - End Vitrified Tiles"],
       ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
       ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "04",
@@ -46,21 +46,24 @@ const specifications = [
       ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
       ["Sanitary Ware", "W.C. Washbasin & C.P Fittings"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "05",
     question: "Kitchen",
     answerLines: [
-      ["Walls", "Ceramic Tiles cladded up to 2 Feet Height Above Granite Counter"],
+      [
+        "Walls",
+        "Ceramic Tiles cladded up to 2 Feet Height Above Granite Counter",
+      ],
       ["Floor", "High - End Vitrified Tiles"],
       ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
       ["Doors", "Powder Coated Aluminium Door / UPVC Door"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
       ["Sanitary Ware", "C.P. Fittings with Double Bowl Stainless Steel Sink"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "06",
@@ -70,8 +73,8 @@ const specifications = [
       ["Floor", "Anti Skid Ceramic Tiles"],
       ["Doors", "Powder Coated Aluminium Door / UPVC Door"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
+      ["Electrical", "Modular Electric Switches"],
+    ],
   },
   {
     id: "07",
@@ -82,12 +85,10 @@ const specifications = [
       ["Ceiling", "POP Punning Work and Oil Bound Distemper"],
       ["Doors", "Skin Moulded Paneled Door / Laminated Flush Door"],
       ["Windows", "Anodized Aluminium Window / UPVC"],
-      ["Electrical", "Modular Electric Switches"]
-    ]
-  }
+      ["Electrical", "Modular Electric Switches"],
+    ],
+  },
 ];
-
-
 
 const Specifications = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -127,12 +128,13 @@ const Specifications = () => {
         Specifications That Set New Standards in Luxury and Craftsmanship
       </h3>
       <div className="flex  mt-[60px] flex-wrap justify-center items-center">
-        <img  loading="lazy" 
-  decoding="async"
+        <img
+          loading="lazy"
+          decoding="async"
           className="basis-[30%] mb-[1.7rem] xl:mb-[0rem] xl:mr-[1.5rem] object-cover h-[400px]"
           src={`${
             import.meta.env.VITE_BASE_URL
-          }/assets/home/specifications/specifications.png`}
+          }assets/home/specifications/specifications.png`}
           alt="about_us"
         />
         <div className="bg-[white] p-[18px] xl:basis-[35%] h-[400px]">
@@ -173,11 +175,15 @@ const Specifications = () => {
                     >
                       <div className="overflow-hidden">
                         {item.answerLines.map(([label, value], index) => (
-    <p className="flex text-[12px] mt-[10px] !font-[400] poppins-regular" key={index}>
-      <span className="min-w-[100px]">{label} - </span>
-      <span>{value}</span>
-    </p>
-  ))}     </div>
+                          <p
+                            className="flex text-[12px] mt-[10px] !font-[400] poppins-regular"
+                            key={index}
+                          >
+                            <span className="min-w-[100px]">{label} - </span>
+                            <span>{value}</span>
+                          </p>
+                        ))}{" "}
+                      </div>
                     </div>
                   </div>
                 ))}

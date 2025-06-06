@@ -5,19 +5,19 @@ import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 const images = [
   {
     id: 1,
-    url: "/assets/home/gallery/new-2.jpg",
+    url: "assets/home/gallery/new-2.jpg",
   },
   {
     id: 2,
-    url: "/assets/home/gallery/new-1.jpg",
+    url: "assets/home/gallery/new-1.jpg",
   },
   {
     id: 3,
-    url: "/assets/home/specifications/specifications.png",
+    url: "assets/home/specifications/specifications.png",
   },
   {
     id: 4,
-    url: "/assets/home/main-bg-4.webp",
+    url: "assets/home/main-bg-4.webp",
   },
 ];
 
@@ -56,7 +56,10 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.00) 35%),
           >
             <h2 className="text-white text-[13px] leading-[23px] px-[10px] xl:text-[15px] xl:tracking-[2px] xl:leading-[28px]  sm:text-[18px] uppercase font-light text-center pt-10  sm:leading-[30px] tracking-[1px] max-w-[90%] mx-auto z-[2] playfair-display-400">
               See the Spaces Where Memories Begin -
-              <span className="block"> A Visual Journey Through Your Future Home.</span>
+              <span className="block">
+                {" "}
+                A Visual Journey Through Your Future Home.
+              </span>
             </h2>
           </div>
         ))}

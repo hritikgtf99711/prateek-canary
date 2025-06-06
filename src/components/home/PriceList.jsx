@@ -46,7 +46,8 @@ const PriceList = () => {
         </h2>
         <h2 className="custom-green xl:text-[15px] xl:tracking-[2px] xl:leading-[28px] text-[19px]  uppercase tracking-[1.5px] text-center !font-[300] playfair-display-400 leading-[30px]">
           <span className="xl:block hidden">
-            Exceptional Quality That Fits Your Budget, Offering Unmatched
+            {/* Exceptional Quality That Fits Your Budget, Offering Unmatched */}
+            Unbeatable Quality, Unbelievable Prices
           </span>
           <span className="hidden">
             {" "}
@@ -94,11 +95,12 @@ const PriceList = () => {
           </p>
           <div className="flex justify-between xl:basis-[80%] xl:mt-0 mt-[20px] basis-[100%] items-center xl:flex-nowrap flex-wrap">
             <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
-              <img  loading="lazy" 
-  decoding="async"
+              <img
+                loading="lazy"
+                decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
-                  "/assets/home/priceList/skyline.png"
+                  "assets/home/priceList/skyline.png"
                 }
                 className="block h-[50px] object-contain"
                 alt="skyline"
@@ -110,11 +112,12 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] xl:mb-0 mb-[30px] flex-col">
-              <img  loading="lazy" 
-  decoding="async"
+              <img
+                loading="lazy"
+                decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
-                  "/assets/home/priceList/businessman.png"
+                  "assets/home/priceList/businessman.png"
                 }
                 className="block h-[50px] object-contain"
                 alt="businessman"
@@ -125,11 +128,12 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] flex-col">
-              <img  loading="lazy" 
-  decoding="async"
+              <img
+                loading="lazy"
+                decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
-                  "/assets/home/priceList/stock-market.png"
+                  "assets/home/priceList/stock-market.png"
                 }
                 className="block h-[50px] object-contain"
                 alt="stock-market"
@@ -139,11 +143,12 @@ const PriceList = () => {
               </span>
             </p>
             <p className="flex justify-center basis-[50%] flex-col">
-              <img  loading="lazy" 
-  decoding="async"
+              <img
+                loading="lazy"
+                decoding="async"
                 src={
                   import.meta.env.VITE_BASE_URL +
-                  "/assets/home/priceList/smart-city.png"
+                  "assets/home/priceList/smart-city.png"
                 }
                 className="block h-[50px] object-contain"
                 alt="smart-city"

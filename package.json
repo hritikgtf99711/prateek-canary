@@ -1,6 +1,6 @@
 {
   "name": "my-react-app",
-  "homepage": "https://websitedesigningcompany.co.in/demo-layout/",
+  "homepage": "https://canary.prateekgroup.com/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +10,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js"
-
   },
   "dependencies": {
     "gsap": "^3.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "react-lazy-load-image-component": "^1.6.3",
     "react-router-dom": "^7.5.0",
     "react-scroll": "^1.9.3",
     "swiper": "^11.2.6"

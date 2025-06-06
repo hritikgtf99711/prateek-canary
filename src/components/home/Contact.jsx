@@ -6,63 +6,69 @@ const Contact = () => {
     email: "",
     phonenumber: "",
     message: "",
-    authorize: true
+    authorize: true,
   });
-  
+
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
-  
-  const { handleSubmit, loading, error, response } = useFormSubmit("Prateek Canary");
+
+  const { handleSubmit, loading, error, response } = useFormSubmit();
 
   const validateField = (name, value) => {
     switch (name) {
-      case 'name':
-        if (!value.trim()) return 'Name is required';
-        if (value.trim().length < 2) return 'Name must be at least 2 characters';
-        if (!/^[a-zA-Z\s]+$/.test(value.trim())) return 'Name can only contain letters and spaces';
-        return '';
-        
-      case 'email':
-        if (!value.trim()) return 'Email is required';
+      case "name":
+        if (!value.trim()) return "Name is required";
+        if (value.trim().length < 2)
+          return "Name must be at least 2 characters";
+        if (!/^[a-zA-Z\s]+$/.test(value.trim()))
+          return "Name can only contain letters and spaces";
+        return "";
+
+      case "email":
+        if (!value.trim()) return "Email is required";
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value.trim())) return 'Please enter a valid email address';
-        return '';
-        
-      case 'phonenumber':
-        if (!value.trim()) return 'Phone number is required';
+        if (!emailRegex.test(value.trim()))
+          return "Please enter a valid email address";
+        return "";
+
+      case "phonenumber":
+        if (!value.trim()) return "Phone number is required";
         const phoneRegex = /^\+?[\d\s\-\(\)]{10,15}$/;
-        if (!phoneRegex.test(value.trim())) return 'Please enter a valid phone number (10-15 digits)';
-        return '';
-        
-      case 'message':
-        if (!value.trim()) return 'Message is required';
-        if (value.trim().length < 10) return 'Message must be at least 10 characters';
-        if (value.trim().length > 500) return 'Message must not exceed 500 characters';
-        return '';
-        
-      case 'authorize':
-        if (!value) return 'You must authorize us to contact you';
-        return '';
-        
+        if (!phoneRegex.test(value.trim()))
+          return "Please enter a valid phone number (10-15 digits)";
+        return "";
+
+      case "message":
+        if (!value.trim()) return "Message is required";
+        if (value.trim().length < 10)
+          return "Message must be at least 10 characters";
+        if (value.trim().length > 500)
+          return "Message must not exceed 500 characters";
+        return "";
+
+      case "authorize":
+        if (!value) return "You must authorize us to contact you";
+        return "";
+
       default:
-        return '';
+        return "";
     }
   };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    const fieldValue = type === 'checkbox' ? checked : value;
-    
-    setFormData(prev => ({
+    const fieldValue = type === "checkbox" ? checked : value;
+
+    setFormData((prev) => ({
       ...prev,
-      [name]: fieldValue
+      [name]: fieldValue,
     }));
 
     if (touched[name]) {
       const error = validateField(name, fieldValue);
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: error
+        [name]: error,
       }));
     }
   };
@@ -70,43 +76,43 @@ const Contact = () => {
   // Handle input blur
   const handleInputBlur = (e) => {
     const { name, value, type, checked } = e.target;
-    const fieldValue = type === 'checkbox' ? checked : value;
-    
-    setTouched(prev => ({
+    const fieldValue = type === "checkbox" ? checked : value;
+
+    setTouched((prev) => ({
       ...prev,
-      [name]: true
+      [name]: true,
     }));
 
     const error = validateField(name, fieldValue);
-    setErrors(prev => ({
+    setErrors((prev) => ({
       ...prev,
-      [name]: error
+      [name]: error,
     }));
   };
 
   // Validate entire form
   const validateForm = () => {
     const newErrors = {};
-    Object.keys(formData).forEach(key => {
+    Object.keys(formData).forEach((key) => {
       const error = validateField(key, formData[key]);
       if (error) newErrors[key] = error;
     });
-    
+
     setErrors(newErrors);
     setTouched({
       name: true,
       email: true,
       phonenumber: true,
       message: true,
-      authorize: true
+      authorize: true,
     });
-    
+
     return Object.keys(newErrors).length === 0;
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -115,25 +121,25 @@ const Contact = () => {
       const submitData = {
         name: formData.name,
         email: formData.email,
-        contact: formData.phonenumber, 
-        message: formData.message
+        contact: formData.phonenumber,
+        message: formData.message,
       };
-      
+
       await handleSubmit(submitData);
-      
+
       if (response?.success) {
         setFormData({
           name: "",
           email: "",
           phonenumber: "",
           message: "",
-          authorize: true
+          authorize: true,
         });
         setErrors({});
         setTouched({});
       }
     } catch (err) {
-      console.error('Form submission error:', err);
+      console.error("Form submission error:", err);
     }
   };
 
@@ -159,11 +165,13 @@ const Contact = () => {
 
       {/* Display API response messages */}
       {response && (
-        <div className={`mb-6 p-4 rounded text-center ${
-          response.success 
-            ? 'bg-green-100 text-green-800 border border-green-300' 
-            : 'bg-red-100 text-red-800 border border-red-300'
-        }`}>
+        <div
+          className={`mb-6 p-4 rounded text-center ${
+            response.success
+              ? "bg-green-100 text-green-800 border border-green-300"
+              : "bg-red-100 text-red-800 border border-red-300"
+          }`}
+        >
           {response.message}
         </div>
       )}
@@ -185,7 +193,7 @@ const Contact = () => {
               <input
                 type="text"
                 className={`bg-[white] border-solid border-[1px] rounded-[4px] basis-[100%] inline-block w-full px-[10px] py-[8px] placeholder:text-[13px] ${
-                  errors.name ? 'border-red-500' : 'border-[#104735]'
+                  errors.name ? "border-red-500" : "border-[#104735]"
                 }`}
                 name="name"
                 placeholder="NAME"
@@ -195,9 +203,7 @@ const Contact = () => {
                 disabled={loading}
               />
               {errors.name && (
-                <p className="text-red-600 text-xs mt-1">
-                  {errors.name}
-                </p>
+                <p className="text-red-600 text-xs mt-1">{errors.name}</p>
               )}
             </div>
 
@@ -206,7 +212,7 @@ const Contact = () => {
               <input
                 type="email"
                 className={`bg-[white] border-solid border-[1px] rounded-[4px] basis-[100%] inline-block w-full px-[10px] py-[8px] placeholder:text-[13px] ${
-                  errors.email ? 'border-red-500' : 'border-[#104735]'
+                  errors.email ? "border-red-500" : "border-[#104735]"
                 }`}
                 name="email"
                 placeholder="EMAIL"
@@ -216,9 +222,7 @@ const Contact = () => {
                 disabled={loading}
               />
               {errors.email && (
-                <p className="text-red-600 text-xs mt-1">
-                  {errors.email}
-                </p>
+                <p className="text-red-600 text-xs mt-1">{errors.email}</p>
               )}
             </div>
 
@@ -227,7 +231,7 @@ const Contact = () => {
               <input
                 type="tel"
                 className={`bg-[white] border-solid border-[1px] rounded-[4px] basis-[100%] w-full px-[10px] py-[8px] placeholder:text-[13px] ${
-                  errors.phonenumber ? 'border-red-500' : 'border-[#104735]'
+                  errors.phonenumber ? "border-red-500" : "border-[#104735]"
                 }`}
                 name="phonenumber"
                 placeholder="NUMBER"
@@ -248,7 +252,7 @@ const Contact = () => {
           <div className="basis-[100%] mt-[24px]">
             <textarea
               className={`basis-[100%] w-full border-[1px] border-solid placeholder:text-[13px] bg-[white] px-[10px] py-[10px] rounded-[4px] ${
-                errors.message ? 'border-red-500' : 'border-[#104735]'
+                errors.message ? "border-red-500" : "border-[#104735]"
               }`}
               name="message"
               cols={54}
@@ -260,9 +264,7 @@ const Contact = () => {
               disabled={loading}
             />
             {errors.message && (
-              <p className="text-red-600 text-xs mt-1">
-                {errors.message}
-              </p>
+              <p className="text-red-600 text-xs mt-1">{errors.message}</p>
             )}
             {/* <p className="text-xs text-gray-500 mt-1">
               {formData.message.length}/500 characters
@@ -277,10 +279,10 @@ const Contact = () => {
                   type="checkbox"
                   checked={formData.authorize}
                   className={`h-[15px] w-[15px] accent-[#104735] ${
-                    errors.authorize ? 'ring-2 ring-red-500' : ''
+                    errors.authorize ? "ring-2 ring-red-500" : ""
                   }`}
                   name="authorize"
-                  id="authorize" 
+                  id="authorize"
                   onChange={handleInputChange}
                   onBlur={handleInputBlur}
                   disabled={loading}
@@ -293,24 +295,22 @@ const Contact = () => {
               overrides any registration for DNC/NDNC.
             </span>
             {errors.authorize && (
-              <p className="text-red-600 text-xs mt-1">
-                {errors.authorize}
-              </p>
+              <p className="text-red-600 text-xs mt-1">{errors.authorize}</p>
             )}
           </div>
 
           {/* Submit Button */}
           <div className="flex basis-[100%] mt-[50px] justify-center">
-            <button 
+            <button
               type="submit"
               disabled={loading}
               className={`text-center border-none text-[11px] tracking-[1px] outline-none px-[80px] py-[10px] ${
-                loading 
-                  ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
-                  : 'text-[white] custom-bg-green cursor-pointer hover:opacity-90'
+                loading
+                  ? "bg-gray-400 text-gray-600 cursor-not-allowed"
+                  : "text-[white] custom-bg-green cursor-pointer hover:opacity-90"
               }`}
             >
-              {loading ? 'Submitting...' : 'Submit'}
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>

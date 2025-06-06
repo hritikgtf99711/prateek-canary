@@ -2,23 +2,181 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/img//favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/img//favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-  <link rel="preload"  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      as="font"  crossorigin>
-  <link rel="preload" href="/assets/home/main-bg-jpg" as="image">
-  <link rel="preload" href="/assets/home/main-bg-4-new.webp" as="image">
-  <link rel="preload" href="/assets/home/logo-canary-new.png" as="image">
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      as="font"
+      crossorigin
+    />
+    <link rel="preload" href="assets/home/main-bg-jpg" as="image" />
+    <link rel="preload" href="assets/home/main-bg-4-new.webp" as="image" />
+    <link rel="preload" href="assets/home/logo-canary-new.png" as="image" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Prateek Canary, Sector 150 – Premium Flats in Noida</title>
+    <meta
+      name="description"
+      content=" Explore 3 & 4 BHK luxury apartments at Prateek Canary, Sector 150 Noida. Spacious layouts, lush greens & world-class amenities await you."
+    />
+    <meta
+      name="keywords"
+      content="prateek group,prateek canary noida,prateek group canary,prateek group sector 150 noida,prateek apartment noida,prateek group sector 150"
+    />
+    <link rel="canonical" href="https://canary.prateekgroup.com/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="author" content="Prateek Canary" />
+    <meta name="language" content="English" />
+    <meta name="distribution" content="Global" />
+    <meta name="doc-type" content="Public" />
+    <meta name="rating" content="safe for kids" />
+    <meta name="revisit-after" content="1 days" />
+    <meta name="expires" content="never" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Prateek Canary, Sector 150 – Premium Flats in Noida"
+    />
+    <meta
+      property="og:description"
+      content="Explore 3 & 4 BHK luxury apartments at Prateek Canary, Sector 150 Noida. Spacious layouts, lush greens & world-class amenities await you."
+    />
+    <meta property="og:url" content="https://canary.prateekgroup.com/" />
+    <meta property="og:site_name" content="Prateek Canary" />
+    <meta
+      property="og:image"
+      content="https://canary.prateekgroup.com/assets/home/logo-canary-new.png"
+    />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card TH data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@Prateek Canary" />
+    <meta
+      name="twitter:title"
+      content="Prateek Canary, Sector 150 – Premium Flats in Noida"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore 3 & 4 BHK luxury apartments at Prateek Canary, Sector 150 Noida. Spacious layouts, lush greens & world-class amenities await you."
+    />
+    <meta name="twitter:creator" content="@Prateek Canary" />
+    <meta
+      name="twitter:image"
+      content="https://canary.prateekgroup.com/assets/home/logo-canary-new.png"
+    />
   </head>
   <body>
     <div id="root" class="custom-wrapper"></div>
+    <!-- Dynamic Google Analytics -->
+    <script>
+      // Get the current path
+      const currentPath = window.location.pathname;
+
+      // Define GA tracking IDs for different paths
+      const gaConfigs = {
+        "/": "G-NYD5S2BBME", // Root domain
+        "/remarketing": "G-QPZY96DT10", // Remarketing section
+        "/demand-gen": "G-6EX9P5FLEF", // Demand gen section
+        "/branding": "G-5QM0E1XC9P", // Branding section
+      };
+
+      // Function to determine which GA ID to use
+      function getGoogleAnalyticsId() {
+        // Check if path starts with any of our configured paths
+        for (const path in gaConfigs) {
+          if (path === "/") {
+            // For root, only match exact root or if no other matches
+            continue;
+          } else if (currentPath.startsWith(path)) {
+            return gaConfigs[path];
+          }
+        }
+        // Default to root GA ID
+        return gaConfigs["/"];
+      }
+
+      // Get the appropriate GA ID
+      const gaId = getGoogleAnalyticsId();
+
+      // Dynamically load Google Analytics
+      function loadGoogleAnalytics(trackingId) {
+        // Load gtag script
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+        document.head.appendChild(script);
+
+        // Initialize gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", trackingId);
+
+        // Make gtag globally available
+        window.gtag = gtag;
+      }
+
+      // Load GA with the determined ID
+      loadGoogleAnalytics(gaId);
+
+      // Optional: Log which GA ID is being used (remove in production)
+      console.log(
+        `Loading Google Analytics with ID: ${gaId} for path: ${currentPath}`
+      );
+    </script>
+
+    <!-- Google tag (gtag.js) conversion tag for every page it is common -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17149672868"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17149672868");
+    </script>
+
+    <!-- Event snippet for Prateek Canary conversion page -->
+    <script>
+      gtag("event", "conversion", {
+        send_to: "AW-17149672868/qEmeCIOTt9QaEKT7zPE_",
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) conversion tag end for every page it is common -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { useState, useRef ,useEffect} from "react";
+import { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -7,32 +7,32 @@ import "swiper/css/navigation";
 // const data = [
 //   {
 //     heading: "3 bhk - Elite",
-//     img: "/assets/home/floor-plan/3bhk/elite.webp",
+//     img: "assets/home/floor-plan/3bhk/elite.webp",
 //     isActive: false,
 //   },
 //   {
 //     heading: "3 bhk - Deluxe",
-//     img: "/assets/home/floor-plan/3bhk/deluxe.webp",
+//     img: "assets/home/floor-plan/3bhk/deluxe.webp",
 //     isActive: false,
 //   },
 //   {
 //     heading: "3 bhk - Deluxe Cluster Plan",
-//     img: "/assets/home/floor-plan/3bhk/deluxe-cluster-plan.webp",
+//     img: "assets/home/floor-plan/3bhk/deluxe-cluster-plan.webp",
 //     isActive: true,
 //   },
 //   {
 //     heading: "4 BHK - Luxury Cluster Plan",
-//     img: "/assets/home/floor-plan/4bhk/1.jpg",
+//     img: "assets/home/floor-plan/4bhk/1.jpg",
 //     isActive: false,
 //   },
 //   {
 //     heading: "4 BHK - Lower Duplex Cluster Plan",
-//     img: "/assets/home/floor-plan/4bhk/2.jpg",
+//     img: "assets/home/floor-plan/4bhk/2.jpg",
 //     isActive: false,
 //   },
 //   {
 //     heading: "4 BHK - Upper Duplex Cluster Plan",
-//     img: "/assets/home/floor-plan/4bhk/3.jpg",
+//     img: "assets/home/floor-plan/4bhk/3.jpg",
 //     isActive: false,
 //   },
 // ];
@@ -116,8 +116,8 @@ import "swiper/css/navigation";
 //                 <p
 //                   onClick={() => handleSlideClick(i)}
 //                   className={`${
-//                     info.isActive 
-//                       ? "font-[600] text-black" 
+//                     info.isActive
+//                       ? "font-[600] text-black"
 //                       : "font-[400] text-gray-600 hover:text-black"
 //                   } cursor-pointer uppercase text-[14px] transition-all duration-200`}
 //                 >
@@ -131,7 +131,6 @@ import "swiper/css/navigation";
 //     </section>
 //   );
 // };
-
 
 const data = [
   {
@@ -169,8 +168,8 @@ const data = [
 const MasterAndFloorPlans = () => {
   const [initialData, setInitialData] = useState(data);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [popupImage, setPopupImage] = useState('');
-  const [popupTitle, setPopupTitle] = useState('');
+  const [popupImage, setPopupImage] = useState("");
+  const [popupTitle, setPopupTitle] = useState("");
   const swiperRef = useRef(null);
 
   const handleSlideClick = (clickedIndex) => {
@@ -199,31 +198,31 @@ const MasterAndFloorPlans = () => {
     setPopupTitle(heading);
     setIsPopupOpen(true);
     // Prevent body scroll when popup is open
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closePopup = () => {
     setIsPopupOpen(false);
-    setPopupImage('');
-    setPopupTitle('');
+    setPopupImage("");
+    setPopupTitle("");
     // Restore body scroll
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
   // Close popup on escape key press
   useEffect(() => {
     const handleEscapeKey = (event) => {
-      if (event.key === 'Escape' && isPopupOpen) {
+      if (event.key === "Escape" && isPopupOpen) {
         closePopup();
       }
     };
 
     if (isPopupOpen) {
-      document.addEventListener('keydown', handleEscapeKey);
+      document.addEventListener("keydown", handleEscapeKey);
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [isPopupOpen]);
 
@@ -252,9 +251,10 @@ const MasterAndFloorPlans = () => {
             {initialData.map((info, i) => (
               <div className="flex justify-center" key={i}>
                 {info.isActive && (
-                  <img  loading="lazy" 
-  decoding="async"
-                    src={`${import.meta.env.VITE_BASE_URL}` + info.img}
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={info.img}
                     className="h-[340px] transition-opacity duration-300 cursor-pointer hover:opacity-80"
                     alt={info.heading}
                     onClick={() => handleImageClick(info.img, info.heading)}
@@ -270,7 +270,7 @@ const MasterAndFloorPlans = () => {
               spaceBetween={10}
               centeredSlides={true}
               navigation
-              initialSlide={initialData.findIndex(item => item.isActive)}
+              initialSlide={initialData.findIndex((item) => item.isActive)}
               breakpoints={{
                 320: { slidesPerView: 1 },
                 640: { slidesPerView: 3 },
@@ -284,8 +284,8 @@ const MasterAndFloorPlans = () => {
                   <p
                     onClick={() => handleSlideClick(i)}
                     className={`${
-                      info.isActive 
-                        ? "font-[600] text-black" 
+                      info.isActive
+                        ? "font-[600] text-black"
                         : "font-[400] text-gray-600 hover:text-black"
                     } cursor-pointer uppercase text-[14px] transition-all duration-200`}
                   >
@@ -300,11 +300,11 @@ const MasterAndFloorPlans = () => {
 
       {/* Image Popup Modal */}
       {isPopupOpen && (
-        <div 
-          className="fixed inset-0 bg-black     z-[9999999999] bg-opacity-80 flex items-center justify-center z-50 p-4"
+        <div
+          className="fixed inset-0 bg-black z-[9999999999] bg-opacity-80 flex items-center justify-center z-50 p-4"
           onClick={closePopup}
         >
-          <div 
+          <div
             className="relative max-w-[90vw] max-h-[90vh] bg-white rounded-lg overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -313,29 +313,30 @@ const MasterAndFloorPlans = () => {
               onClick={closePopup}
               className="absolute top-4 right-4 z-10 bg-black bg-opacity-70 hover:bg-opacity-90 text-white rounded-full h-6 w-6 xl:w-10 xl:h-10 flex items-center justify-center transition-all duration-200 hover:scale-110"
             >
-              <svg 
-                className="w-4 h-4 xl:w-6 xl:h-6" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 xl:w-6 xl:h-6"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M6 18L18 6M6 6l12 12" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
             </button>
-            
+
             {/* Image */}
-            <img  loading="lazy" 
-  decoding="async"
+            <img
+              loading="lazy"
+              decoding="async"
               src={`${import.meta.env.VITE_BASE_URL}` + popupImage}
               alt={popupTitle}
               className="w-full h-auto max-h-[80vh] object-contain"
             />
-            
+
             {/* Title */}
             <div className="p-4 bg-white">
               <h4 className="text-[13px] xl:text-lg font-semibold text-center text-gray-800 uppercase">
