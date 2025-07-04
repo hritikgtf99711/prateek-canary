@@ -8,7 +8,8 @@ const AboutUs = () => {
   return (
     <section
       id="aboutus"
-      className="bg-[url(assets/home/about-us-bg.png)] bg-[#F4F3EE] bg-blend-lighten relative  !py-[60px]"
+      // bg-[url(assets/home/about-us-bg.png)]
+      className=" bg-[#F4F3EE] bg-blend-lighten relative  !py-[60px]"
     >
       <h2
         style={{

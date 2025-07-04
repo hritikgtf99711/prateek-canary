@@ -14,7 +14,7 @@ const data = [
   {
     img: "/assets/home/locationMap/airport-white.png",
 
-    name: "15 mins from upcoming The Jewar Airport",
+    name: "30 mins from upcoming The Jewar Airport",
   },
   {
     img: "/assets/home/locationMap/junction-white.png",
@@ -114,7 +114,10 @@ const LocationMap = () => {
           <div className="bg-[white] xl:w-auto w-full px-[22px] xl:p-[22px] lgmac:py-[40px] lgmac:px-[50px] py-[40px] inline-block mx-0 my-auto ">
             <div className="relative  flex-col xl:mb-0 mb-[1.5rem] basis-[100%] flex   overflow-hidden">
               {data.map((item, idx) => (
-                <div className="flex place-items-center mb-[25px] bg-white">
+                <div
+                  key={item.name}
+                  className="flex place-items-center mb-[25px] bg-white"
+                >
                   <img
                     loading="lazy"
                     decoding="async"

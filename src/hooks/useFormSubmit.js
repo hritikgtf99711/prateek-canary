@@ -47,7 +47,8 @@ export const useFormSubmit = () => {
       if (!res.ok) throw new Error("Failed to submit form");
       setResponse({ success: true, message: "Form submitted successfully!" });
 
-      navigate("thank-you");
+      window.location.href = "/thank-you.html";
+      // navigate("/thank-you.htm");
     } catch (err) {
       const message = err.message || "Something went wrong";
       setError(message);

@@ -42,8 +42,8 @@ const EnquiryForm = ({ isOpen, onClose }) => {
 
       case "message":
         if (!value.trim()) return "Message is required";
-        if (value.trim().length < 10)
-          return "Message must be at least 10 characters";
+        if (value.trim().length < 1)
+          return "Message must be at least 1 characters";
         if (value.trim().length > 500)
           return "Message must not exceed 500 characters";
         return "";

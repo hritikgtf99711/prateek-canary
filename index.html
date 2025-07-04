@@ -11,33 +11,34 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/img//favicon-32x32.png"
+      href="/assets/img/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/assets/img//favicon-16x16.png"
+      href="/assets/img/favicon-16x16.png"
     />
-    <link rel="manifest" href="/site.webmanifest" />
+    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      as="font"
-      crossorigin
-    />
-    <link rel="preload" href="assets/home/main-bg-jpg" as="image" />
-    <link rel="preload" href="assets/home/main-bg-4-new.webp" as="image" />
-    <link rel="preload" href="assets/home/logo-canary-new.png" as="image" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- Preload Key Images -->
+    <link rel="preload" href="/assets/home/main-bg-jpg" as="image" />
+    <link rel="preload" href="/assets/home/main-bg-4-new.webp" as="image" />
+    <link rel="preload" href="/assets/home/logo-canary-new.png" as="image" />
+
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prateek Canary, Sector 150 – Premium Flats in Noida</title>
+
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
       content=" Explore 3 & 4 BHK luxury apartments at Prateek Canary, Sector 150 Noida. Spacious layouts, lush greens & world-class amenities await you."
@@ -57,7 +58,8 @@
     <meta name="revisit-after" content="1 days" />
     <meta name="expires" content="never" />
     <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -75,7 +77,7 @@
     />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- Twitter Card TH data -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Prateek Canary" />
     <meta
@@ -91,92 +93,84 @@
       name="twitter:image"
       content="https://canary.prateekgroup.com/assets/home/logo-canary-new.png"
     />
-  </head>
-  <body>
-    <div id="root" class="custom-wrapper"></div>
-    <!-- Dynamic Google Analytics -->
+
+    <!-- Google Analytics Loader -->
     <script>
-      // Get the current path
-      const currentPath = window.location.pathname;
+      (function () {
+        const currentPath = window.location.pathname;
+        const gaConfigs = {
+          "/": "G-NYD5S2BBME",
+          "/remarketing": "G-QPZY96DT10",
+          "/demand-gen": "G-6EX9P5FLEF",
+          "/branding": "G-5QM0E1XC9P",
+        };
 
-      // Define GA tracking IDs for different paths
-      const gaConfigs = {
-        "/": "G-NYD5S2BBME", // Root domain
-        "/remarketing": "G-QPZY96DT10", // Remarketing section
-        "/demand-gen": "G-6EX9P5FLEF", // Demand gen section
-        "/branding": "G-5QM0E1XC9P", // Branding section
-      };
-
-      // Function to determine which GA ID to use
-      function getGoogleAnalyticsId() {
-        // Check if path starts with any of our configured paths
-        for (const path in gaConfigs) {
-          if (path === "/") {
-            // For root, only match exact root or if no other matches
-            continue;
-          } else if (currentPath.startsWith(path)) {
-            return gaConfigs[path];
+        function getGoogleAnalyticsId() {
+          for (const path in gaConfigs) {
+            if (path !== "/" && currentPath.startsWith(path)) {
+              return gaConfigs[path];
+            }
           }
+          return gaConfigs["/"];
         }
-        // Default to root GA ID
-        return gaConfigs["/"];
-      }
 
-      // Get the appropriate GA ID
-      const gaId = getGoogleAnalyticsId();
+        const gaId = getGoogleAnalyticsId();
 
-      // Dynamically load Google Analytics
-      function loadGoogleAnalytics(trackingId) {
-        // Load gtag script
         const script = document.createElement("script");
         script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
         document.head.appendChild(script);
 
-        // Initialize gtag
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", trackingId);
-
-        // Make gtag globally available
-        window.gtag = gtag;
-      }
-
-      // Load GA with the determined ID
-      loadGoogleAnalytics(gaId);
-
-      // Optional: Log which GA ID is being used (remove in production)
-      console.log(
-        `Loading Google Analytics with ID: ${gaId} for path: ${currentPath}`
-      );
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag("js", new Date());
+          gtag("config", gaId);
+        };
+      })();
     </script>
 
-    <!-- Google tag (gtag.js) conversion tag for every page it is common -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-17149672868"
-    ></script>
+    <!-- Google conversion code -->
     <script>
+      const allowedPaths = [
+        "/",
+        "/demand-gen",
+        "/demand-gen/",
+        "/remarketing/",
+        "/remarketing",
+        "/branding",
+        "/branding/",
+        "/thank-you/",
+        "/thank-you",
+      ];
+      const currentPath = window.location.pathname;
+
+      if (allowedPaths.includes(currentPath)) {
+        // Load gtag script
+        const gtagScript = document.createElement("script");
+        gtagScript.src =
+          "https://www.googletagmanager.com/gtag/js?id=AW-17149672868";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        // Add gtag configuration
+        const inlineScript = document.createElement("script");
+        inlineScript.innerHTML = `
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
-
       gtag("config", "AW-17149672868");
+    `;
+        document.head.appendChild(inlineScript);
+      }
     </script>
+  </head>
 
-    <!-- Event snippet for Prateek Canary conversion page -->
-    <script>
-      gtag("event", "conversion", {
-        send_to: "AW-17149672868/qEmeCIOTt9QaEKT7zPE_",
-      });
-    </script>
-
-    <!-- Google tag (gtag.js) conversion tag end for every page it is common -->
+  <body>
+    <div id="root" class="custom-wrapper"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

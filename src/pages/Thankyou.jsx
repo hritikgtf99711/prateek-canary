@@ -1,28 +1,40 @@
-import React from "react";
 import { Link } from "react-router-dom"; // Changed Navigate to Link
 import Footer from "../components/home/Footer";
-import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const ThankYouPage = () => {
-  const location = useLocation();
-
-  const getRedirectUrl = () => {
-    const currentPath = location.pathname;
-
-    // Check which section we're in
-    if (currentPath.includes("/branding")) {
-      return "/branding/";
-    } else if (currentPath.includes("/remarketing")) {
-      return "/remarketing/";
-    } else if (currentPath.includes("/demand-gen")) {
-      return "/demand-gen/";
-    } else {
-      // Default to base URL if no section is detected
-      return import.meta.env.VITE_BASE_URL;
-    }
-  };
   return (
     <>
+      <Helmet>
+        <script>
+          {`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1290311484487839');
+          fbq('track', 'PageView');
+        `}
+        </script>
+
+        <noscript>
+          {`
+          <img height="1" width="1" style="display:none"
+          src="https://www.facebook.com/tr?id=1290311484487839&ev=PageView&noscript=1" />
+        `}
+        </noscript>
+
+        {/* <!-- Event snippet for Submit Lead Form 17/6 conversion page --> */}
+        <script>
+          {`gtag("event", "conversion", {
+            send_to: "AW-17149672868/SbVJCM2H4dwaEKT7zPE_",
+          })`}
+        </script>
+      </Helmet>
       <div className="bg-[#f9fbf4] flex items-center justify-center py-[80px]">
         <div className="w-full max-w-2xl text-center">
           <div className="mx-auto mb-6 flex items-center justify-center text-2xl">
@@ -42,7 +54,7 @@ const ThankYouPage = () => {
             hours. Stay with us.
           </p>
           <Link
-            to={getRedirectUrl()} // Changed href to to
+            to={import.meta.env.VITE_BASE_URL} // Changed href to to
             className="inline-block bg-[#35543ded] text-[#fff] relative py-[8px] px-[20px]"
           >
             Back to home

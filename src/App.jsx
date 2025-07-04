@@ -100,22 +100,26 @@ export default function App() {
               path={import.meta.env.VITE_BASE_URL + "branding"}
               element={<Home />}
             />
-            <Route
+            {/* <Route
               path={import.meta.env.VITE_BASE_URL + "thank-you"}
               element={<ThankYouPage />}
-            />
+            /> */}
             <Route
+              path={import.meta.env.VITE_BASE_URL + "thank-you.html"}
+              element={<ThankYouPage />}
+            />
+            {/* <Route
               path={import.meta.env.VITE_BASE_URL + "demand-gen/thank-you"}
               element={<ThankYouPage />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path={import.meta.env.VITE_BASE_URL + "remarketing/thank-you"}
               element={<ThankYouPage />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path={import.meta.env.VITE_BASE_URL + "branding/thank-you"}
               element={<ThankYouPage />}
-            />
+            /> */}
             <Route
               path={import.meta.env.VITE_BASE_URL + "demand-gen/disclaimer"}
               element={<Desclaimer />}

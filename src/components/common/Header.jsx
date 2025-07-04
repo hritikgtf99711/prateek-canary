@@ -11,8 +11,8 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
   const triggerRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

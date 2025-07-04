@@ -172,9 +172,10 @@ const HeroSection = () => {
               alt="line"
               className="lg:h-[100px] lg:block hidden lg:w-[2px] w-[100%] h-[2px]"
             />
-            <p className="lg:basis-[32%] basis-[100%]   tracking-[2px] lg:text-[15px] text-[14px] leading-[24px]  uppercase  flex flex-col items-center">
-              <span className="lg:text-[20px] text-[18px] text-center mb-[10px] leading-[1.6] font-[400]">
-                3/4 BHK & Duplex <span className="lg:block"></span> Penthouses
+            <p className="lg:basis-[38%] basis-[100%]   tracking-[2px] lg:text-[15px] text-[14px] leading-[24px]  uppercase  flex flex-col items-center">
+              <span className="lg:text-[20px] md:p-0 px-[12px] text-[18px] text-center mb-[10px] leading-[1.6] font-[400]">
+                3/4 BHK Luxury Apartments & Duplex{" "}
+                <span className="lg:block"></span> Penthouses
               </span>
               <span className="tracking-[1.6] text-[12px] font-[500]">
                 Spacious Residencies At Sector 150 Noida
@@ -196,7 +197,7 @@ const HeroSection = () => {
             <LazyLoadImage
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line-price.svg`}
               alt="line"
-              className="h-[0.7px]  w-[100%]"
+              className="h-[0.7px]   w-[100%]"
             />
             <p className="h-[50px] leading-[50px] text-[20px] tracking-[2.5px] uppercase text-center">
               ₹2.92 Cr* onwards
@@ -204,7 +205,7 @@ const HeroSection = () => {
             <LazyLoadImage
               src={`${import.meta.env.VITE_BASE_URL}assets/home/line-price.svg`}
               alt="line"
-              className="h-[0.7px]  w-[100%]"
+              className="h-[0.7px]   w-[100%]"
             />
           </div>
 
